@@ -19,54 +19,6 @@ import static org.junit.Assert.assertEquals;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class BPMNSystemTest extends AbstractSystemTest {
 
-    @Test
-    public void testBPMNEngine() throws IOException {
-        testBPMNEngine("activiti");
-    }
 
-    @Test
-    public void test_A_BpmnActiviti5170SequenceFlow() throws IOException {
-        testBPMNEngine("activiti5170");
-    }
-
-    @Test
-    public void test_A_BpmnCamunda700SequenceFlow() throws IOException {
-        testBPMNEngine("camunda");
-    }
-
-    @Test
-    public void test_A_BpmnCamunda710SequenceFlow() throws IOException {
-        testBPMNEngine("camunda710");
-    }
-
-    @Test
-    public void test_A_BpmnCamunda720SequenceFlow() throws IOException {
-        testBPMNEngine("camunda720");
-    }
-
-    @Test
-    public void test_A_BpmnCamunda730SequenceFlow() throws IOException {
-        testBPMNEngine("camunda730");
-    }
-
-    @Test
-    public void test_A_BpmnjBPMSequenceFlow() throws IOException {
-        testBPMNEngine("jbpm");
-    }
-
-    @Test
-    public void test_A_BpmnjBPM610SequenceFlow() throws IOException {
-        testBPMNEngine("jbpm610");
-    }
-
-    @Test
-    public void test_A_BpmnjBPM620SequenceFlow() throws IOException {
-        testBPMNEngine("jbpm620");
-    }
-
-    private void testBPMNEngine(String engine) throws IOException {
-        Main.main("bpmn", "-f", "test-" + engine, engine, "SequenceFlow");
-        assertEquals("[SequenceFlow;" + engine + ";basics;1;0;1;1]", Files.readAllLines(Paths.get("test-" + engine + "/reports/results.csv")).toString());
-    }
 
 }
